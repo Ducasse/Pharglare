@@ -48,3 +48,12 @@ PGGrammarSymbolTest >> testCreateANonTerminal [
 
 	
 ]
+
+{ #category : #tests }
+PGGrammarSymbolTest >> testSimpleGrammarCreation [
+
+	| grammar |
+	grammar := PGGrammar fromStream: ('''('' E '')''') readStream.
+	self assert: grammar tokens size equals: 3
+
+]

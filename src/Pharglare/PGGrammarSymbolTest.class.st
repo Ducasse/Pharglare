@@ -16,6 +16,18 @@ PGGrammarSymbolTest >> testANonTerminalShouldHaveAName [
 ]
 
 { #category : #tests }
+PGGrammarSymbolTest >> testAction [
+	| nt |
+	nt := PGNonTerminal myTerminal.
+	nt actionName: #print.
+	nt actionMapping: {#print -> [ :parsingContext :nodes | parsingContext] } asDictionary. 
+	self assert: (nt execute: #print) equals: #()
+
+
+	
+]
+
+{ #category : #tests }
 PGGrammarSymbolTest >> testAnUnnamedNonTerminalShouldBeUnnamed [
 
 	| nt |

@@ -2,10 +2,18 @@ Class {
 	#name : #PGNonTerminal,
 	#superclass : #Object,
 	#instVars : [
-		'name'
+		'name',
+		'actionName',
+		'actionMapping'
 	],
 	#category : #Pharglare
 }
+
+{ #category : #examples }
+PGNonTerminal class >> myTerminal [
+	<sampleInstance>
+	^ self withName: 'My'
+]
 
 { #category : #constants }
 PGNonTerminal class >> undefinedName [
@@ -21,6 +29,24 @@ PGNonTerminal class >> withName: aString [
 	inst := self new. 
 	inst name: aString.
 	^ inst 
+]
+
+{ #category : #private }
+PGNonTerminal >> actionMapping: aDictionary [
+
+	actionMapping := aDictionary
+]
+
+{ #category : #accessing }
+PGNonTerminal >> actionName: aSymbol [
+
+	actionName := aSymbol
+]
+
+{ #category : #private }
+PGNonTerminal >> execute: aSymbol [
+
+	^ ( actionMapping at: aSymbol ) value: #() value: #()
 ]
 
 { #category : #initialization }

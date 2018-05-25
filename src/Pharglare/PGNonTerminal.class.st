@@ -13,6 +13,16 @@ PGNonTerminal class >> undefinedName [
 	^ 'Undefined Name'
 ]
 
+{ #category : #'instance creation' }
+PGNonTerminal class >> withName: aString [
+	" ^ self new name: aString; yourself "
+	
+	| inst | 
+	inst := self new. 
+	inst name: aString.
+	^ inst 
+]
+
 { #category : #initialization }
 PGNonTerminal >> initialize [
 
